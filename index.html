@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="strict-origin-when-cross-origin"><meta name="theme-color" content="#0F2340">
 <title>OLAMI — Signage & Branding | Coming Soon</title>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Fraunces:wght@600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Fraunces:wght@600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Manrope',sans-serif;background:#0F2340;color:#fff;min-height:100vh;overflow-x:hidden}
@@ -72,12 +72,12 @@ footer{max-width:1180px;margin:0 auto;padding:0 22px 26px;position:relative;z-in
       <div class="cd"><b id="s">00</b><span>SECS</span></div>
     </div>
 
-    <form onsubmit="showMsg(event)">
-      <input type="email" placeholder="Enter your email for launch update" required>
+    <form onsubmit="showMsg(event)" autocomplete="on">
+      <input type="email" name="email" autocomplete="email" maxlength="254" placeholder="Enter your email for launch update" required>
       <button class="btn">Notify Me →</button>
     </form>
-    <p style="font-size:12px;color:#A7F3D0;margin-top:8px">🔒 Your email is encrypted & secure — protected by 256-bit SSL.</p><div id="msg" class="success">You're on the list! We'll email you on launch day. Thank you!</div>
-    <p class="note">Join 500+ US businesses waiting for launch. No spam — only launch + opening offer.</p><div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px"><span style="background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.22);padding:6px 12px;border-radius:999px;font-size:12px;font-weight:700">🔒 https://olami.com — SSL Secured</span><span style="background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.22);padding:6px 12px;border-radius:999px;font-size:12px;font-weight:700">✓ Privacy Protected</span><span style="background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.22);padding:6px 12px;border-radius:999px;font-size:12px;font-weight:700">✓ Safe & Verified</span></div>
+    <div id="msg" class="success">You're on the list! We'll email you on launch day. Thank you!</div>
+    <p class="note">Join 500+ US businesses waiting for launch. No spam — we only use your email for launch + opening offer.</p>
 
     <div class="features">
       <div class="feat"><span>✦</span> Channel Letters</div>
@@ -108,7 +108,7 @@ footer{max-width:1180px;margin:0 auto;padding:0 22px 26px;position:relative;z-in
   </div>
 </div>
 
-<footer><span>© 2026 OLAMI Signage & Branding • 🔒 https://olami.com — Secured with SSL</span><span>📍 Austin, TX • ✉️ hello@olami.com • 📞 (512) 555-0148</span></footer>
+<footer><span>© 2026 OLAMI Signage & Branding </span><span>📍 Austin, TX • ✉️ hello@olami.com • 📞 (512) 555-0148</span></footer>
 
 <script>
 const target = Date.now() + 14*24*60*60*1000;
