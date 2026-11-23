@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Home | OLAMI Signage & Branding</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="assets/images/favicon-48.png">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Fraunces:wght@600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css?v=2">
+</head>
+
+<body>
+  <div id="headerSlot"></div>
+  <script src="assets/js/header.js?v=2"></script>
+  <main>
+    <div class="wrap hero">
+      <div><span class="pill">✦ PREMIUM • USA • NATIONWIDE</span>
+        <h1>Signs That Make<br><i>Brands</i> Unforgettable.</h1>
+        <p>OLAMI is a US-based signage & branding studio. We turn storefronts, offices, fleets and events into landmarks
+          — from first sketch to final install. <b>650+ projects, 10,000+ installations, 4.9★ rated.</b></p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn" href="contact.html">Start Your Project →</a><a
+            class="btn2" href="portfolio.html">Explore Portfolio</a></div>
+        <div style="display:flex;gap:28px;margin-top:28px;flex-wrap:wrap">
+          <div><b style="font-size:26px">650+</b><br><small>US Projects</small></div>
+          <div><b style="font-size:26px">10k+</b><br><small>Installations</small></div>
+          <div><b style="font-size:26px">4.9★</b><br><small>Client Rating</small></div>
+          <div><b style="font-size:26px">50</b><br><small>States Served</small></div>
+        </div>
+      </div>
+      <div class="hero-card led-gold">
+        <div><span style="font-size:12px;letter-spacing:.25em;color:#FFE9A8;font-weight:700"><span
+              class="led-dot"></span> DESIGN • FABRICATION • INSTALL • LED ON</span>
+          <h2 style="font-size:72px !important;margin:18px 0 14px">OLAMI</h2>
+          <p>Channel Letters • LED • Monument • Wraps<br>Built in USA. Built to last.</p>
+        </div>
+        <div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap"><span class="led-badge"
+              style="color:#111827;padding:10px 16px;border-radius:999px;font-size:13px"><span class="led-dot"></span> ★
+              Trusted in 50 States</span><span
+              style="border:1px solid rgba(255,255,255,.3);padding:10px 16px;border-radius:999px;font-size:12px;color:#fff">Licensed
+              & Insured</span></div>
+          <div class="glow-switch"><small>CHOOSE LED GLOW — TRY IT LIVE</small><button class="glow-btn gold active"
+              onclick="setGlow('gold',this)">● Warm Gold</button><button class="glow-btn"
+              onclick="setGlow('white',this)">● White LED</button><button class="glow-btn blue"
+              onclick="setGlow('blue',this)">● Blue LED</button></div>
+        </div>
+      </div>
+    </div>
+    <div class="wrap">
+      <section><span class="pill">WHY OLAMI</span>
+        <h2 class="sec-title">One Partner. From Idea to Install.</h2>
+        <div class="grid3">
+          <div class="feature">
+            <h3>🎨 Design First</h3>
+            <p>Free 3D mockup on YOUR building before you pay. See it, approve it, then we build it.</p>
+          </div>
+          <div class="feature">
+            <h3>🏭 In-House Fabrication</h3>
+            <p>Aluminum, acrylic, stainless steel, LED. Quality controlled in our Texas workshop.</p>
+          </div>
+          <div class="feature">
+            <h3>📋 Permits Handled</h3>
+            <p>We handle city permits, engineering drawings & landlord approvals for you.</p>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:22px"><a class="btn" href="services.html">See All Services →</a> &nbsp;
+          <a class="btn2" href="process.html">How We Work</a>
+        </div>
+      </section>
+    </div>
+    <div class="wrap">
+      <section><span class="pill">OUR SERVICES</span>
+        <h2 class="sec-title">OLAMI SIGNAGE & BRANDING — Our Services</h2>
+        <p style="color:#555;margin-bottom:22px">12 expert services, one partner. From first design to final
+          installation.</p>
+        <div class="grid3"><a href="services.html" style="text-decoration:none">
+            <div class="feature" style="height:100%"><img src="assets/images/services/service-exterior.jpg"
+                alt="Exterior Signage — OLAMI Signage" loading="lazy"
+                style="width:100%;height:150px;object-fit:cover;display:block;border-radius:10px;margin-bottom:10px">
+              <div style="font-size:12px;font-weight:800;letter-spacing:.18em;color:#B8933F">01</div>
+              <h3 style="margin:8px 0 6px">Exterior Signage</h3>
+              <p>Storefront, building & monument signs.</p>
+            </div>
+          </a>
+          <a href="services.html" style="text-decoration:none">
+            <div class="feature" style="height:100%"><img src="assets/images/services/service-interior.jpg"
+                alt="Interior Signage — OLAMI Signage" loading="lazy"
+                style="width:100%;height:150px;object-fit:cover;display:block;border-radius:10px;margin-bottom:10px">
+              <div style="font-size:12px;font-weight:800;letter-spacing:.18em;color:#B8933F">02</div>
+              <h3 style="margin:8px 0 6px">Interior Signage</h3>
+              <p>Lobby, reception & wayfinding signs.</p>
+            </div>
+          </a>
+          <a href="services.html" style="text-decoration:none">
+            <div class="feature" style="height:100%"><img src="assets/images/services/service-led.jpg"
+                alt="Illuminated & LED Signs — OLAMI Signage" loading="lazy"
+                style="width:100%;height:150px;object-fit:cover;display:block;border-radius:10px;margin-bottom:10px">
+              <div style="font-size:12px;font-weight:800;letter-spacing:.18em;color:#B8933F">03</div>
+              <h3 style="margin:8px 0 6px">Illuminated & LED Signs</h3>
+              <p>Channel letters, lightboxes & LED displays.</p>
+            </div>
+          </a>
+          <a href="services.html" style="text-decoration:none">
+            <div class="feature" style="height:100%"><img src="assets/images/services/service-acrylic.jpg"
+                alt="Custom Acrylic Signs — OLAMI Signage" loading="lazy"
+                style="width:100%;height:150px;object-fit:cover;display:block;border-radius:10px;margin-bottom:10px">
+              <div style="font-size:12px;font-weight:800;letter-spacing:.18em;color:#B8933F">04</div>
+              <h3 style="margin:8px 0 6px">Custom Acrylic Signs</h3>
+              <p>Frosted, coloured, backlit or layered acrylic.</p>
+            </div>
+          </a>
+          <a href="services.html" style="text-decoration:none">
+            <div class="feature" style="height:100%"><img src="assets/images/services/service-3d.jpg"
+                alt="3D Letters & Logos — OLAMI Signage" loading="lazy"
+                style="width:100%;height:150px;object-fit:cover;display:block;border-radius:10px;margin-bottom:10px">
+              <div style="font-size:12px;font-weight:800;letter-spacing:.18em;color:#B8933F">05</div>
+              <h3 style="margin:8px 0 6px">3D Letters & Logos</h3>
+              <p>Dimensional letters in metal, acrylic or PVC.</p>
+            </div>
+          </a>
+          <a href="services.html" style="text-decoration:none">
+            <div class="feature" style="height:100%"><img src="assets/images/services/service-metal.jpg"
+                alt="Metal & PVC Signs — OLAMI Signage" loading="lazy"
+                style="width:100%;height:150px;object-fit:cover;display:block;border-radius:10px;margin-bottom:10px">
+              <div style="font-size:12px;font-weight:800;letter-spacing:.18em;color:#B8933F">06</div>
+              <h3 style="margin:8px 0 6px">Metal & PVC Signs</h3>
+              <p>Durable signs for outdoors & long-term use.</p>
+            </div>
+          </a>
+        </div>
+        <div style="text-align:center;margin-top:22px"><a class="btn" href="services.html">See All Services in Detail
+            →</a> &nbsp; <a class="btn2" href="contact.html">Get a Quote →</a></div>
+      </section>
+    </div>
+    <div class="wrap">
+      <section><span class="pill">FEATURED WORK</span>
+        <h2 class="sec-title">Recent Work That Turned Heads</h2>
+        <div class="port-grid">
+          <div class="port"><img src="assets/images/portfolio/real-midas-letters.jpg"
+              alt="Midas — illuminated channel letters, real install" loading="lazy"
+              style="width:100%;height:220px;object-fit:cover;display:block">
+            <div class="port-inner"><span>AUTO • REAL CLIENT WORK</span>
+              <h3>Midas — Auto Service &amp; Tires</h3>
+              <p>Full storefront + monument + illuminated channel letters. Real install.</p>
+            </div>
+          </div>
+          <div class="port"><img src="assets/images/portfolio/project-evergreen-retail.jpg">
+            <div class="port-inner"><span>RESTAURANT • NEW YORK, NY</span>
+              <h3>Evergreen Retail</h3>
+              <p>LED video wall + window branding.</p>
+            </div>
+          </div>
+          <div class="port"><img src="assets/images/portfolio/project-summit-logistics.jpg">
+            <div class="port-inner"><span>FLEET • DALLAS, TX</span>
+              <h3>Summit Logistics</h3>
+              <p>42-vehicle wrap fleet in 12 days.</p>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:18px"><a class="btn2" href="portfolio.html">View Full Portfolio →</a>
+        </div>
+      </section>
+    </div>
+    <div class="wrap">
+      <section style="background:#fff;border:1px solid #EDE6D6;border-radius:22px;padding:32px">
+        <p style="font-size:12px;font-weight:800;letter-spacing:.22em;color:#B8933F">REAL CLIENT WORK • JUST INSTALLED
+        </p>
+        <h2 class="sec-title">See Our Latest Real Installs —<br>Midas &amp; ZJAH.</h2>
+        <p style="color:#555;max-width:760px">Real photos from recent installs — not stock. Channel letters, monument
+          signs &amp; boom-lift installation.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px"><img
+            src="assets/images/portfolio/real-midas-letters.jpg" alt="Midas — illuminated channel letters, real install"
+            loading="lazy" style="width:100%;height:320px;object-fit:cover;display:block;border-radius:14px"><img
+            src="assets/images/portfolio/real-zjah-building.jpg" alt="ZJAH — completed building sign, real install"
+            loading="lazy" style="width:100%;height:320px;object-fit:cover;display:block;border-radius:14px"></div>
+        <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:22px"><a class="btn"
+            href="portfolio.html" style="background:#E8C97A;color:#111">See All Real Work →</a></div>
+      </section>
+    </div>
+    <div class="wrap">
+      <section class="cta-band" style="margin-top:22px">
+        <h2 class="sec-title" style="color:#fff">Get Your Free Consultation</h2>
+        <p style="opacity:.8">Free 3D mockup • No obligation • Reply within 24 hours</p>
+        <div style="margin-top:18px"><a class="btn" href="contact.html">Get Free Quote →</a></div>
+      </section>
+    </div>
+  </main>
+  <div id="footerSlot"></div>
+  <script src="assets/js/footer.js?v=2"></script>
+  <script>function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('show'); document.getElementById('hamburgerBtn').classList.toggle('open'); } function closeMenu() { var m = document.getElementById('mobileMenu'); if (m) m.classList.remove('show'); var b = document.getElementById('hamburgerBtn'); if (b) b.classList.remove('open'); } let lastScroll = 0; window.addEventListener('scroll', function () { var h = document.querySelector('header'); var y = window.scrollY; if (y > 90 && y > lastScroll) h.classList.add('hide-nav'); else h.classList.remove('hide-nav'); lastScroll = y; }, { passive: true }); function setGlow(c, b) { var card = document.querySelector('.hero-card'); if (!card) return; card.classList.remove('led-white', 'led-blue', 'led-gold'); card.classList.add('led-' + c); document.querySelectorAll('.glow-btn').forEach(x => x.classList.remove('active')); if (b) b.classList.add('active'); }</script>
+  <!-- Sticky Call Now / Book Now bar - visible on every page -->
+
+  <div class="sticky-call-bar"><a class="call-btn" href="tel:+18328070762">📞 Call Now</a><a class="book-btn"
+      href="contact.html#quote-form">Book Now →</a></div>
+</body>
+
+</html>
