@@ -1,2 +1,0 @@
-# olami
-sevice based business

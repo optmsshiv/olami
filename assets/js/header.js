@@ -18,7 +18,7 @@
   if (!slot) return;
   slot.innerHTML =
     '<header><div class="wrap top">' +
-    '<a href="index.html" style="text-decoration:none;color:#fff"><div class="logo" style="background:#fff;padding:6px 12px;border-radius:10px;line-height:0"><img src="assets/images/olami-logo-transparent.png" alt="OLAMI - Signage & Branding" style="height:38px;width:auto;display:block"></div></a>' +
+    '<a href="index.html" style="text-decoration:none;color:#fff"><div class="logo" style="padding:6px 12px;border-radius:10px;line-height:0"><img src="assets/images/olami-logo-transparent.png" alt="OLAMI - Signage & Branding" style="height:38px;width:auto;display:block"></div></a>' +
     '<button class="hamburger" id="hamburgerBtn" onclick="toggleMenu()"><span></span><span></span><span></span></button>' +
     '<nav>' + nav + '</nav>' +
     '<a class="btn" href="' + cta + '">\uD83D\uDD12 Secure \u2022 Get a Quote \u2192</a></div>' +
