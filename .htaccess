@@ -16,3 +16,39 @@ RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 </IfModule>
 
 Options -Indexes
+
+# ============================================================
+# --- Hide .html extension (Clean URLs) ---
+# /about.html  ->  /about
+# /pages/about.html -> /about
+# /about -> serves /about.html OR /pages/about.html
+# send-quote.php is NOT rewritten, form keeps working
+# ============================================================
+
+DirectoryIndex index.html
+
+# 1. If visitor types /about.html -> redirect to clean /about (301, SEO-safe)
+RewriteCond %{THE_REQUEST} \s/+([^\s?]+)\.html[\s?] [NC]
+RewriteRule ^(.+)\.html$ /$1 [R=301,L]
+
+# 2. If visitor types /pages/about.html -> redirect to clean /about
+RewriteCond %{THE_REQUEST} \s/+pages/([^\s?]+)\.html[\s?] [NC]
+RewriteRule ^pages/(.+)\\.html$ /$1 [R=301,L]
+
+# 3. Clean URL -> real file (only if not a real file/folder/.php)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php !-f
+
+# 3a. Try root first: /about -> /about.html
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^([^.]+)$ $1.html [L]
+
+# 3b. Then try pages/ folder: /about -> /pages/about.html
+RewriteCond %{DOCUMENT_ROOT}/pages/$1.html -f
+RewriteRule ^([^.]+)$ pages/$1.html [L]
+
+# --- Security: block .htaccess itself ---
+<FilesMatch "^\.ht">
+    Require all denied
+</FilesMatch>
