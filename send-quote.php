@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 // 2) Paste that mailbox password below (NOT your cPanel password, NOT a Gmail password)
 $SMTP_HOST = 'mail.olamibranding.us';        // Bluehost SMTP
 $SMTP_USER = 'info@olamibranding.us';         // Domain mailbox that SENDS both emails
-$SMTP_PASS = 'Secure@135'; // <-- CHANGE THIS to the mailbox password you created in Bluehost
+$SMTP_PASS = 'PUT_YOUR_INFO_MAILBOX_PASSWORD_HERE';
 $SMTP_PORT = 465;                              // 465 = SSL (Bluehost default). Use 587 + TLS if 465 fails.
 $FROM_EMAIL = 'info@olamibranding.us';
 $FROM_NAME  = 'OLAMI Signage & Branding';
@@ -49,6 +49,13 @@ if ($name === '' || $business === '' || !filter_var($email, FILTER_VALIDATE_EMAI
     exit;
 }
 
+// --- Guard: password not set yet -> clear message, not a cryptic SMTP 500 ---
+if ($SMTP_PASS === 'PUT_YOUR_INFO_MAILBOX_PASSWORD_HERE' || $SMTP_PASS === '') {
+    http_response_code(500);
+    echo json_encode(['ok' => false, 'error' => 'Mail password not set in send-quote.php ($SMTP_PASS). Create info@olamibranding.us in Bluehost and paste its mailbox password.']);
+    exit;
+}
+
 // --- Escape for safe HTML output ---
 $e = fn($v) => htmlspecialchars($v, ENT_QUOTES, 'UTF-8');
 $name_e = $e($name); $business_e = $e($business); $email_e = $e($email);
@@ -75,7 +82,8 @@ $adminBody = $wrapTop
   . '<p style="background:#FAF8F3;border-left:4px solid #E8C97A;padding:14px 16px;font-size:14px;line-height:1.6;color:#333;margin:20px 0 0">' . $message_e . '</p>'
   . '<table cellpadding="0" cellspacing="0" style="margin-top:24px"><tr>'
   . '<td style="background:#E8C97A;border-radius:999px;padding:12px 22px"><a href="mailto:' . $email_e . '" style="color:#111;text-decoration:none;font-weight:bold;font-size:14px">Reply to Lead</a></td>'
-  . '<td style="padding-left:10px;background:#0F2340;border-radius:999px;padding:12px 22px"><a href="tel:' . $phone_e . '" style="color:#fff;text-decoration:none;font-weight:bold;font-size:14px">Call Lead</a></td>'
+  . '<td style="width:12px;font-size:0;line-height:0">&nbsp;</td>'
+  . '<td style="background:#0F2340;border-radius:999px;padding:12px 22px"><a href="tel:' . $phone_e . '" style="color:#fff;text-decoration:none;font-weight:bold;font-size:14px">Call Lead</a></td>'
   . '</tr></table>'
   . $wrapBottom;
 
@@ -92,7 +100,8 @@ $visitorBody = $wrapTop
   . '<p style="background:#FAF8F3;border-left:4px solid #E8C97A;padding:14px 16px;font-size:14px;line-height:1.7;color:#333;margin:20px 0 0"><b>What happens next?</b><br>1. Our team reviews your project &amp; size<br>2. We call or email you with questions &amp; a free quote<br>3. Design, permits, fabrication &amp; install — one partner</p>'
   . '<table cellpadding="0" cellspacing="0" style="margin-top:24px"><tr>'
   . '<td style="background:#E8C97A;border-radius:999px;padding:12px 22px"><a href="tel:+18328070762" style="color:#111;text-decoration:none;font-weight:bold;font-size:14px">Call Us: +1 (832) 807-0762</a></td>'
-  . '<td style="padding-left:10px;background:#0F2340;border-radius:999px;padding:12px 22px"><a href="mailto:info@olamibranding.us" style="color:#fff;text-decoration:none;font-weight:bold;font-size:14px">Email Us</a></td>'
+  . '<td style="width:12px;font-size:0;line-height:0">&nbsp;</td>'
+  . '<td style="background:#0F2340;border-radius:999px;padding:12px 22px"><a href="mailto:info@olamibranding.us" style="color:#fff;text-decoration:none;font-weight:bold;font-size:14px">Email Us</a></td>'
   . '</tr></table>'
   . $wrapBottom;
 
@@ -100,14 +109,16 @@ $visitorBody = $wrapTop
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-// require __DIR__ . '/PHPMailer/src/Exception.php';
-// require __DIR__ . '/PHPMailer/src/PHPMailer.php';
-// require __DIR__ . '/PHPMailer/src/SMTP.php';
-require __DIR__ . '/vendor/autoload.php';
 
 try {
+    require __DIR__ . '/PHPMailer/src/Exception.php';
+    require __DIR__ . '/PHPMailer/src/PHPMailer.php';
+    require __DIR__ . '/PHPMailer/src/SMTP.php';
+
     // 1) ADMIN EMAIL — goes to BOTH info@olamibranding.us AND olamibranding@gmail.com
     $mail = new PHPMailer(true);
+    $mail->CharSet = 'UTF-8';
+    $mail->Encoding = 'base64';
     $mail->isSMTP();
     $mail->Host = $SMTP_HOST;
     $mail->SMTPAuth = true;
@@ -126,6 +137,8 @@ try {
 
     // 2) VISITOR EMAIL — FROM info@olamibranding.us
     $mail2 = new PHPMailer(true);
+    $mail2->CharSet = 'UTF-8';
+    $mail2->Encoding = 'base64';
     $mail2->isSMTP();
     $mail2->Host = $SMTP_HOST;
     $mail2->SMTPAuth = true;
@@ -143,7 +156,11 @@ try {
     $mail2->send();
 
     echo json_encode(['ok' => true]);
-} catch (Exception $ex) {
+} catch (Throwable $ex) {
+    // Log the REAL reason to Bluehost error_log (cPanel -> Metrics -> Errors) so a 500 is never a mystery again
+    error_log('OLAMI send-quote error: ' . $ex->getMessage());
     http_response_code(500);
-    echo json_encode(['ok' => false, 'error' => 'Mail failed. Please call +1 (832) 807-0762.']);
+    // Add ?debug=1 to the URL in a test to see the real message; normal visitors still see the friendly message
+    $show = (isset($_GET['debug']) && $_GET['debug'] === '1');
+    echo json_encode(['ok' => false, 'error' => $show ? $ex->getMessage() : 'Mail failed. Please call +1 (832) 807-0762.']);
 }
