@@ -217,8 +217,13 @@
         var res = await fetch("/send-quote.php", { method: "POST", body: data });
         var out = await res.json();
         if (out.ok) {
-          msg.style.display = "block"; msg.style.color = "#0F2340";
-          msg.textContent = "✓ Request sent! Check your email — we've sent you a confirmation. We'll reply within 24 hours.";
+          var nm = document.getElementById("from_name").value.trim() || "there";
+          var em = document.getElementById("from_email").value.trim() || "your inbox";
+          document.getElementById("tyName").textContent = nm.split(" ")[0];
+          document.getElementById("tyEmail").textContent = em;
+          document.getElementById("thankYouModal").style.display = "flex";
+          document.body.style.overflow = "hidden";
+          msg.style.display = "none";
           document.getElementById("quote-form").reset();
         } else {
           throw new Error(out.error || "failed");
@@ -229,7 +234,51 @@
       }
       btn.disabled = false; btn.textContent = "Get My Free Quote →";
     });
-  </script>
+  function closeThankYou(){ var m=document.getElementById("thankYouModal"); if(m) m.style.display="none"; document.body.style.overflow=""; }
+document.getElementById("thankYouModal").addEventListener("click", function(e){ if(e.target===this) closeThankYou(); });
+document.addEventListener("keydown", function(e){ if(e.key==="Escape") closeThankYou(); });
+</script>
+
+<!-- Premium Thank You Modal — shows after successful form submit -->
+<div id="thankYouModal" class="ty-overlay" style="display:none" role="dialog" aria-modal="true" aria-labelledby="tyTitle">
+  <div class="ty-card">
+    <button class="ty-close" onclick="closeThankYou()" aria-label="Close">&times;</button>
+    <div class="ty-check"><span>&#10003;</span></div>
+    <p class="ty-eyebrow">QUOTE REQUEST RECEIVED</p>
+    <h2 id="tyTitle">Thank you, <span id="tyName">there</span>!</h2>
+    <p class="ty-sub">We received your request and will reply within <b>24 hours on business days</b>. A confirmation email is on its way to <b id="tyEmail">your inbox</b>.</p>
+    <div class="ty-next">
+      <div><span>1</span><p>Our team reviews your project &amp; size</p></div>
+      <div><span>2</span><p>We call or email you with a free quote</p></div>
+      <div><span>3</span><p>Design, permits, fabrication &amp; install — one partner</p></div>
+    </div>
+    <div class="ty-actions">
+      <button class="btn" onclick="closeThankYou()" style="border:none;cursor:pointer">Done &nbsp;&rarr;</button>
+      <a class="btn2" href="tel:+18328070762">&#128222; Call Us: +1 (832) 807-0762</a>
+    </div>
+  </div>
+</div>
+<style>
+.ty-overlay{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(15,35,64,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);animation:tyFade .25s ease both}
+.ty-card{position:relative;width:100%;max-width:480px;background:#fff;border-radius:22px;padding:38px 32px 30px;text-align:center;box-shadow:0 30px 80px rgba(0,0,0,.35),0 0 0 1px rgba(232,201,122,.4);animation:tyPop .35s cubic-bezier(.2,1.4,.4,1) both}
+.ty-close{position:absolute;top:12px;right:14px;border:none;background:#F4F1EA;width:32px;height:32px;border-radius:50%;font-size:20px;line-height:1;cursor:pointer;color:#555}
+.ty-check{width:72px;height:72px;margin:0 auto 16px;border-radius:50%;background:linear-gradient(135deg,#E8C97A,#C9A44A);display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 8px rgba(232,201,122,.15),0 0 32px rgba(232,201,122,.45);animation:tyCheck .5s .15s cubic-bezier(.2,1.4,.4,1) both}
+.ty-check span{font-size:36px;color:#0F2340;font-weight:900}
+.ty-eyebrow{font-size:11px;font-weight:800;letter-spacing:.22em;color:#B8933F;margin:0 0 8px}
+.ty-card h2{font-size:28px;color:#0F2340;margin:0 0 10px;line-height:1.2}
+.ty-sub{color:#555;font-size:14.5px;line-height:1.65;margin:0}
+.ty-next{margin:22px 0;text-align:left;display:flex;flex-direction:column;gap:10px}
+.ty-next div{display:flex;gap:12px;align-items:center;background:#FAF8F3;border:1px solid #EDE6D6;border-radius:12px;padding:10px 12px}
+.ty-next span{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:#0F2340;color:#E8C97A;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.ty-next p{margin:0;font-size:13.5px;color:#333;line-height:1.45}
+.ty-actions{display:flex;flex-direction:column;gap:10px}
+.ty-actions .btn,.ty-actions .btn2{width:100%;justify-content:center;box-sizing:border-box}
+@keyframes tyFade{from{opacity:0}to{opacity:1}}
+@keyframes tyPop{from{opacity:0;transform:translateY(16px) scale(.95)}to{opacity:1;transform:none}}
+@keyframes tyCheck{from{opacity:0;transform:scale(.4)}to{opacity:1;transform:scale(1)}}
+@media(max-width:480px){.ty-card{padding:32px 22px 24px}.ty-card h2{font-size:24px}}
+</style>
+
 </body>
 
 
