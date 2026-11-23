@@ -214,7 +214,7 @@
       var data = new FormData(this); // sends from_name, business_name, from_email, phone, service, city, message, website
 
       try {
-        var res = await fetch("send-quote.php", { method: "POST", body: data });
+        var res = await fetch("/send-quote.php", { method: "POST", body: data });
         var out = await res.json();
         if (out.ok) {
           msg.style.display = "block"; msg.style.color = "#0F2340";
@@ -231,5 +231,6 @@
     });
   </script>
 </body>
+
 
 </html>
