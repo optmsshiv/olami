@@ -1,129 +1,202 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="strict-origin-when-cross-origin"><meta name="theme-color" content="#0F2340">
-<title>OLAMI — Signage & Branding | Coming Soon</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Fraunces:wght@600;700&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Manrope',sans-serif;background:#0F2340;color:#fff;min-height:100vh;overflow-x:hidden}
-a{text-decoration:none}
-.top{max-width:1180px;margin:0 auto;padding:22px;display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2}
-.logo{font-size:28px;font-weight:800;letter-spacing:.22em;line-height:1}.logo small{display:block;font-size:9px;letter-spacing:.35em;color:#E8C97A;margin-top:4px}
-.top-right{display:flex;gap:12px;align-items:center}
-.pill{font-size:12px;font-weight:800;letter-spacing:.12em;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);padding:8px 14px;border-radius:999px}
-.hero-bg{position:fixed;inset:0;background:linear-gradient(180deg, rgba(15,35,64,.92) 0%, rgba(15,35,64,.88) 45%, rgba(15,35,64,.96) 100%), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1800&q=80') center/cover no-repeat;z-index:0}
-.hero-bg:after{content:'';position:absolute;inset:0;background:radial-gradient(600px 300px at 50% 20%, rgba(232,201,122,.18), transparent)}
-.wrap{max-width:1180px;margin:0 auto;padding:40px 22px 30px;position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
-@media(max-width:900px){.wrap{grid-template-columns:1fr;text-align:center}}
-.eyebrow{display:inline-flex;gap:8px;align-items:center;background:#FFF3C4;color:#0F2340;padding:7px 13px;border-radius:999px;font-size:12px;font-weight:800;letter-spacing:.08em}
-.eyebrow i{width:8px;height:8px;background:#22C55E;border-radius:50%;display:inline-block;box-shadow:0 0 0 4px rgba(34,197,94,.18)}
-h1{font-family:'Fraunces',serif;font-size:68px;line-height:.95;margin:18px 0 16px}
-@media(max-width:600px){h1{font-size:44px}}
-h1 i{color:#E8C97A;font-style:normal}
-.sub{color:#E5E7EB;font-size:17px;line-height:1.65;max-width:560px}
-@media(max-width:900px){.sub{margin:0 auto}}
-.count{display:flex;gap:12px;margin:28px 0}
-@media(max-width:900px){.count{justify-content:center}}
-.cd{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:18px;padding:16px 0;width:86px;text-align:center;backdrop-filter:blur(8px)}
-.cd b{font-size:30px;display:block;line-height:1}.cd span{font-size:11px;letter-spacing:.14em;color:#E8C97A;font-weight:800}
-form{display:flex;gap:10px;max-width:520px}
-@media(max-width:900px){form{margin:0 auto}}
-input{flex:1;padding:14px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.12);color:#fff;outline:none}
-input::placeholder{color:#D1D5DB}
-.btn{background:#E8C97A;color:#0F2340;padding:14px 24px;border-radius:999px;font-weight:800;border:none;cursor:pointer;white-space:nowrap}
-.btn:hover{filter:brightness(1.07)}
-.note{font-size:13px;color:#CBD5E1;margin-top:10px}
-.features{display:flex;gap:18px;margin-top:26px;flex-wrap:wrap}
-@media(max-width:900px){.features{justify-content:center}}
-.feat{display:flex;gap:10px;align-items:center;font-size:13px;font-weight:700;color:#E5E7EB}
-.feat span{width:32px;height:32px;border-radius:50%;background:rgba(232,201,122,.18);border:1px solid rgba(232,201,122,.45);display:grid;place-items:center;font-size:15px}
-.card{background:linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.06));border:1px solid rgba(232,201,122,.55);border-radius:24px;padding:32px;box-shadow:0 20px 60px rgba(0,0,0,.35), 0 0 60px rgba(232,201,122,.18);backdrop-filter:blur(10px);text-align:center}
-.card h2{font-size:56px;letter-spacing:.08em;color:#E8C97A;line-height:1}
-.card small{letter-spacing:.35em;font-size:10px;color:#fff;font-weight:800}
-.card .glow{margin:18px auto;width:110px;height:110px;border-radius:50%;background:radial-gradient(circle, #FFF3C4, #E8C97A 45%, transparent 70%);filter:blur(1px);animation:floaty 3s ease-in-out infinite}
-@keyframes floaty{0%,100%{transform:scale(1);opacity:.9}50%{transform:scale(1.08);opacity:1}}
-.card p{color:#E5E7EB;font-size:14.5px;line-height:1.6;margin:12px 0 18px}
-.switch{display:flex;gap:8px;justify-content:center}
-.sw{width:34px;height:34px;border-radius:50%;border:2px solid rgba(255,255,255,.6);cursor:pointer}
-.sw.active{border-color:#fff;outline:2px solid #E8C97A}
-.services{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px;text-align:left}
-.svc{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:12px;font-size:13px}
-.svc b{display:block;font-size:13px}.svc span{color:#CBD5E1;font-size:12px}
-.social{display:flex;gap:10px;justify-content:center;margin-top:18px}
-.social a{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);display:grid;place-items:center;color:#fff;font-weight:800;font-size:13px}
-footer{max-width:1180px;margin:0 auto;padding:0 22px 26px;position:relative;z-index:2;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;color:#CBD5E1;font-size:13px}
-@media(max-width:640px){footer{justify-content:center;text-align:center}}
-.success{display:none;background:#ECFDF5;color:#065F46;padding:12px 16px;border-radius:12px;font-weight:700;font-size:14px;margin-top:12px;max-width:520px}
-@media(max-width:900px){.success{margin:12px auto}}
-</style></head>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Home | OLAMI Signage & Branding</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="assets/images/favicon-48.png">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Fraunces:wght@600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css?v=2">
+</head>
+
 <body>
-<div class="hero-bg"></div>
-<div class="top"><div class="logo">OLAMI<small>SIGNAGE & BRANDING</small></div><div class="top-right"><span class="pill">● WEBSITE LAUNCHING SOON</span></div></div>
-
-<div class="wrap">
-  <div>
-    <span class="eyebrow"><i></i> NEW WEBSITE COMING SOON</span>
-    <h1>Signs that <i>make<br>people stop.</i></h1>
-    <p class="sub">We're crafting a brand-new OLAMI experience — premium signage, channel letters, monument signs, vehicle wraps & full branding for US businesses. Launching very soon.</p>
-
-    <div class="count">
-      <div class="cd"><b id="d">14</b><span>DAYS</span></div>
-      <div class="cd"><b id="h">00</b><span>HOURS</span></div>
-      <div class="cd"><b id="m">00</b><span>MINS</span></div>
-      <div class="cd"><b id="s">00</b><span>SECS</span></div>
+  <div id="headerSlot"></div>
+  <script src="assets/js/header.js?v=2"></script>
+  <main>
+    <div class="wrap hero">
+      <div><span class="pill">✦ PREMIUM • USA • NATIONWIDE</span>
+        <h1>Signs That Make<br><i>Brands</i> Unforgettable.</h1>
+        <p>OLAMI is a US-based signage & branding studio. We turn storefronts, offices, fleets and events into landmarks
+          — from first sketch to final install. <b>650+ projects, 10,000+ installations, 4.9★ rated.</b></p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn" href="contact.html">Start Your Project →</a><a
+            class="btn2" href="portfolio.html">Explore Portfolio</a></div>
+        <div style="display:flex;gap:28px;margin-top:28px;flex-wrap:wrap">
+          <div><b style="font-size:26px">650+</b><br><small>US Projects</small></div>
+          <div><b style="font-size:26px">10k+</b><br><small>Installations</small></div>
+          <div><b style="font-size:26px">4.9★</b><br><small>Client Rating</small></div>
+          <div><b style="font-size:26px">50</b><br><small>States Served</small></div>
+        </div>
+      </div>
+      <div class="hero-card led-gold">
+        <div><span style="font-size:12px;letter-spacing:.25em;color:#FFE9A8;font-weight:700"><span
+              class="led-dot"></span> DESIGN • FABRICATION • INSTALL • LED ON</span>
+          <h2 style="font-size:72px !important;margin:18px 0 14px">OLAMI</h2>
+          <p>Channel Letters • LED • Monument • Wraps<br>Built in USA. Built to last.</p>
+        </div>
+        <div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap"><span class="led-badge"
+              style="color:#111827;padding:10px 16px;border-radius:999px;font-size:13px"><span class="led-dot"></span> ★
+              Trusted in 50 States</span><span
+              style="border:1px solid rgba(255,255,255,.3);padding:10px 16px;border-radius:999px;font-size:12px;color:#fff">Licensed
+              & Insured</span></div>
+          <div class="glow-switch"><small>CHOOSE LED GLOW — TRY IT LIVE</small><button class="glow-btn gold active"
+              onclick="setGlow('gold',this)">● Warm Gold</button><button class="glow-btn"
+              onclick="setGlow('white',this)">● White LED</button><button class="glow-btn blue"
+              onclick="setGlow('blue',this)">● Blue LED</button></div>
+        </div>
+      </div>
     </div>
-
-    <form onsubmit="showMsg(event)" autocomplete="on">
-      <input type="email" name="email" autocomplete="email" maxlength="254" placeholder="Enter your email for launch update" required>
-      <button class="btn">Notify Me →</button>
-    </form>
-    <div id="msg" class="success">You're on the list! We'll email you on launch day. Thank you!</div>
-    <p class="note">Join 500+ US businesses waiting for launch. No spam — we only use your email for launch + opening offer.</p>
-
-    <div class="features">
-      <div class="feat"><span>✦</span> Channel Letters</div>
-      <div class="feat"><span>✦</span> Monument Signs</div>
-      <div class="feat"><span>✦</span> Vehicle Wraps</div>
-      <div class="feat"><span>✦</span> Full Branding</div>
+    <div class="wrap">
+      <section><span class="pill">WHY OLAMI</span>
+        <h2 class="sec-title">One Partner. From Idea to Install.</h2>
+        <div class="grid3">
+          <div class="feature">
+            <h3>🎨 Design First</h3>
+            <p>Free 3D mockup on YOUR building before you pay. See it, approve it, then we build it.</p>
+          </div>
+          <div class="feature">
+            <h3>🏭 In-House Fabrication</h3>
+            <p>Aluminum, acrylic, stainless steel, LED. Quality controlled in our Texas workshop.</p>
+          </div>
+          <div class="feature">
+            <h3>📋 Permits Handled</h3>
+            <p>We handle city permits, engineering drawings & landlord approvals for you.</p>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:22px"><a class="btn" href="services.html">See All Services →</a> &nbsp;
+          <a class="btn2" href="process.html">How We Work</a>
+        </div>
+      </section>
     </div>
-  </div>
-
-  <div class="card" id="card">
-    <small>SIGNAGE • BRANDING • DESIGN</small>
-    <h2>OLAMI</h2>
-    <div class="glow" id="glow"></div>
-    <p>Illuminated signage that works day & night.<br>Trusted by 500+ businesses across the USA.</p>
-    <div style="font-size:12px;font-weight:800;letter-spacing:.12em;color:#E8C97A">TRY LED GLOW — CLICK A COLOR</div>
-    <div class="switch" style="margin-top:10px">
-      <div class="sw active" onclick="setGlow('#E8C97A',this)" style="background:#E8C97A"></div>
-      <div class="sw" onclick="setGlow('#FFFFFF',this)" style="background:#fff"></div>
-      <div class="sw" onclick="setGlow('#60A5FA',this)" style="background:#60A5FA"></div>
+    <div class="wrap">
+      <section><span class="pill">OUR SERVICES</span>
+        <h2 class="sec-title">OLAMI SIGNAGE & BRANDING — Our Services</h2>
+        <p style="color:#555;margin-bottom:22px">12 expert services, one partner. From first design to final
+          installation.</p>
+        <div class="grid3"><a href="services.html" style="text-decoration:none">
+            <div class="feature" style="height:100%"><img src="assets/images/services/service-exterior.jpg"
+                alt="Exterior Signage — OLAMI Signage" loading="lazy"
+                style="width:100%;height:150px;object-fit:cover;display:block;border-radius:10px;margin-bottom:10px">
+              <div style="font-size:12px;font-weight:800;letter-spacing:.18em;color:#B8933F">01</div>
+              <h3 style="margin:8px 0 6px">Exterior Signage</h3>
+              <p>Storefront, building & monument signs.</p>
+            </div>
+          </a>
+          <a href="services.html" style="text-decoration:none">
+            <div class="feature" style="height:100%"><img src="assets/images/services/service-interior.jpg"
+                alt="Interior Signage — OLAMI Signage" loading="lazy"
+                style="width:100%;height:150px;object-fit:cover;display:block;border-radius:10px;margin-bottom:10px">
+              <div style="font-size:12px;font-weight:800;letter-spacing:.18em;color:#B8933F">02</div>
+              <h3 style="margin:8px 0 6px">Interior Signage</h3>
+              <p>Lobby, reception & wayfinding signs.</p>
+            </div>
+          </a>
+          <a href="services.html" style="text-decoration:none">
+            <div class="feature" style="height:100%"><img src="assets/images/services/service-led.jpg"
+                alt="Illuminated & LED Signs — OLAMI Signage" loading="lazy"
+                style="width:100%;height:150px;object-fit:cover;display:block;border-radius:10px;margin-bottom:10px">
+              <div style="font-size:12px;font-weight:800;letter-spacing:.18em;color:#B8933F">03</div>
+              <h3 style="margin:8px 0 6px">Illuminated & LED Signs</h3>
+              <p>Channel letters, lightboxes & LED displays.</p>
+            </div>
+          </a>
+          <a href="services.html" style="text-decoration:none">
+            <div class="feature" style="height:100%"><img src="assets/images/services/service-acrylic.jpg"
+                alt="Custom Acrylic Signs — OLAMI Signage" loading="lazy"
+                style="width:100%;height:150px;object-fit:cover;display:block;border-radius:10px;margin-bottom:10px">
+              <div style="font-size:12px;font-weight:800;letter-spacing:.18em;color:#B8933F">04</div>
+              <h3 style="margin:8px 0 6px">Custom Acrylic Signs</h3>
+              <p>Frosted, coloured, backlit or layered acrylic.</p>
+            </div>
+          </a>
+          <a href="services.html" style="text-decoration:none">
+            <div class="feature" style="height:100%"><img src="assets/images/services/service-3d.jpg"
+                alt="3D Letters & Logos — OLAMI Signage" loading="lazy"
+                style="width:100%;height:150px;object-fit:cover;display:block;border-radius:10px;margin-bottom:10px">
+              <div style="font-size:12px;font-weight:800;letter-spacing:.18em;color:#B8933F">05</div>
+              <h3 style="margin:8px 0 6px">3D Letters & Logos</h3>
+              <p>Dimensional letters in metal, acrylic or PVC.</p>
+            </div>
+          </a>
+          <a href="services.html" style="text-decoration:none">
+            <div class="feature" style="height:100%"><img src="assets/images/services/service-metal.jpg"
+                alt="Metal & PVC Signs — OLAMI Signage" loading="lazy"
+                style="width:100%;height:150px;object-fit:cover;display:block;border-radius:10px;margin-bottom:10px">
+              <div style="font-size:12px;font-weight:800;letter-spacing:.18em;color:#B8933F">06</div>
+              <h3 style="margin:8px 0 6px">Metal & PVC Signs</h3>
+              <p>Durable signs for outdoors & long-term use.</p>
+            </div>
+          </a>
+        </div>
+        <div style="text-align:center;margin-top:22px"><a class="btn" href="services.html">See All Services in Detail
+            →</a> &nbsp; <a class="btn2" href="contact.html">Get a Quote →</a></div>
+      </section>
     </div>
-    <div class="services">
-      <div class="svc"><b>Channel Letters</b><span>From $1,499 • 7–10 days</span></div>
-      <div class="svc"><b>Monument Signs</b><span>From $4,999 • 2–3 weeks</span></div>
-      <div class="svc"><b>Vehicle Wraps</b><span>From $2,499 • 3–5 days</span></div>
-      <div class="svc"><b>LED & Neon</b><span>From $899 • 5–7 days</span></div>
+    <div class="wrap">
+      <section><span class="pill">FEATURED WORK</span>
+        <h2 class="sec-title">Recent Work That Turned Heads</h2>
+        <div class="port-grid">
+          <div class="port"><img src="assets/images/portfolio/real-midas-letters.jpg"
+              alt="Midas — illuminated channel letters, real install" loading="lazy"
+              style="width:100%;height:220px;object-fit:cover;display:block">
+            <div class="port-inner"><span>AUTO • REAL CLIENT WORK</span>
+              <h3>Midas — Auto Service &amp; Tires</h3>
+              <p>Full storefront + monument + illuminated channel letters. Real install.</p>
+            </div>
+          </div>
+          <div class="port"><img src="assets/images/portfolio/project-evergreen-retail.jpg">
+            <div class="port-inner"><span>RESTAURANT • NEW YORK, NY</span>
+              <h3>Evergreen Retail</h3>
+              <p>LED video wall + window branding.</p>
+            </div>
+          </div>
+          <div class="port"><img src="assets/images/portfolio/project-summit-logistics.jpg">
+            <div class="port-inner"><span>FLEET • DALLAS, TX</span>
+              <h3>Summit Logistics</h3>
+              <p>42-vehicle wrap fleet in 12 days.</p>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:18px"><a class="btn2" href="portfolio.html">View Full Portfolio →</a>
+        </div>
+      </section>
     </div>
-    <div class="social"><a href="#">IG</a><a href="#">FB</a><a href="#">IN</a><a href="#">X</a></div>
-  </div>
-</div>
+    <div class="wrap">
+      <section style="background:#fff;border:1px solid #EDE6D6;border-radius:22px;padding:32px">
+        <p style="font-size:12px;font-weight:800;letter-spacing:.22em;color:#B8933F">REAL CLIENT WORK • JUST INSTALLED
+        </p>
+        <h2 class="sec-title">See Our Latest Real Installs —<br>Midas &amp; ZJAH.</h2>
+        <p style="color:#555;max-width:760px">Real photos from recent installs — not stock. Channel letters, monument
+          signs &amp; boom-lift installation.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px"><img
+            src="assets/images/portfolio/real-midas-letters.jpg" alt="Midas — illuminated channel letters, real install"
+            loading="lazy" style="width:100%;height:320px;object-fit:cover;display:block;border-radius:14px"><img
+            src="assets/images/portfolio/real-zjah-building.jpg" alt="ZJAH — completed building sign, real install"
+            loading="lazy" style="width:100%;height:320px;object-fit:cover;display:block;border-radius:14px"></div>
+        <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:22px"><a class="btn"
+            href="portfolio.html" style="background:#E8C97A;color:#111">See All Real Work →</a></div>
+      </section>
+    </div>
+    <div class="wrap">
+      <section class="cta-band" style="margin-top:22px">
+        <h2 class="sec-title" style="color:#fff">Get Your Free Consultation</h2>
+        <p style="opacity:.8">Free 3D mockup • No obligation • Reply within 24 hours</p>
+        <div style="margin-top:18px"><a class="btn" href="contact.html">Get Free Quote →</a></div>
+      </section>
+    </div>
+  </main>
+  <div id="footerSlot"></div>
+  <script src="assets/js/footer.js?v=2"></script>
+  <script>function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('show'); document.getElementById('hamburgerBtn').classList.toggle('open'); } function closeMenu() { var m = document.getElementById('mobileMenu'); if (m) m.classList.remove('show'); var b = document.getElementById('hamburgerBtn'); if (b) b.classList.remove('open'); } let lastScroll = 0; window.addEventListener('scroll', function () { var h = document.querySelector('header'); var y = window.scrollY; if (y > 90 && y > lastScroll) h.classList.add('hide-nav'); else h.classList.remove('hide-nav'); lastScroll = y; }, { passive: true }); function setGlow(c, b) { var card = document.querySelector('.hero-card'); if (!card) return; card.classList.remove('led-white', 'led-blue', 'led-gold'); card.classList.add('led-' + c); document.querySelectorAll('.glow-btn').forEach(x => x.classList.remove('active')); if (b) b.classList.add('active'); }</script>
+  <!-- Sticky Call Now / Book Now bar - visible on every page -->
 
-<footer><span>© 2026 OLAMI Signage & Branding </span><span>📍 Austin, TX • ✉️ hello@olami.com • 📞 (512) 555-0148</span></footer>
+  <div class="sticky-call-bar"><a class="call-btn" href="tel:+18328070762">📞 Call Now</a><a class="book-btn"
+      href="contact.html#quote-form">Book Now →</a></div>
+</body>
 
-<script>
-const target = Date.now() + 14*24*60*60*1000;
-function tick(){
-  let diff = target - Date.now(); if(diff<0) diff=0;
-  const d=Math.floor(diff/86400000), h=Math.floor(diff%86400000/3600000), m=Math.floor(diff%3600000/60000), s=Math.floor(diff%60000/1000);
-  document.getElementById('d').textContent=String(d).padStart(2,'0');
-  document.getElementById('h').textContent=String(h).padStart(2,'0');
-  document.getElementById('m').textContent=String(m).padStart(2,'0');
-  document.getElementById('s').textContent=String(s).padStart(2,'0');
-}
-tick(); setInterval(tick,1000);
-function setGlow(c,el){
-  document.getElementById('glow').style.background=`radial-gradient(circle, #fff, ${c} 45%, transparent 70%)`;
-  document.querySelectorAll('.sw').forEach(x=>x.classList.remove('active')); el.classList.add('active');
-}
-function showMsg(e){ e.preventDefault(); document.getElementById('msg').style.display='block'; e.target.reset(); }
-</script></body></html>
+</html>
