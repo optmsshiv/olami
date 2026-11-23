@@ -100,9 +100,10 @@ $visitorBody = $wrapTop
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require __DIR__ . '/PHPMailer/src/Exception.php';
-require __DIR__ . '/PHPMailer/src/PHPMailer.php';
-require __DIR__ . '/PHPMailer/src/SMTP.php';
+// require __DIR__ . '/PHPMailer/src/Exception.php';
+// require __DIR__ . '/PHPMailer/src/PHPMailer.php';
+// require __DIR__ . '/PHPMailer/src/SMTP.php';
+require __DIR__ . '/vendor/autoload.php';
 
 try {
     // 1) ADMIN EMAIL — goes to BOTH info@olamibranding.us AND olamibranding@gmail.com
