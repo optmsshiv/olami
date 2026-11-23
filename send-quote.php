@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 // 2) Paste that mailbox password below (NOT your cPanel password, NOT a Gmail password)
 $SMTP_HOST = 'mail.olamibranding.us';        // Bluehost SMTP
 $SMTP_USER = 'info@olamibranding.us';         // Domain mailbox that SENDS both emails
-$SMTP_PASS = 'PUT_YOUR_INFO_MAILBOX_PASSWORD_HERE';
+$SMTP_PASS = 'Secure@135';                    // <-- CHANGE THIS to the mailbox password you created in Bluehost
 $SMTP_PORT = 465;                              // 465 = SSL (Bluehost default). Use 587 + TLS if 465 fails.
 $FROM_EMAIL = 'info@olamibranding.us';
 $FROM_NAME  = 'OLAMI Signage & Branding';
@@ -111,9 +111,10 @@ use PHPMailer\PHPMailer\Exception;
 
 
 try {
-    require __DIR__ . '/PHPMailer/src/Exception.php';
-    require __DIR__ . '/PHPMailer/src/PHPMailer.php';
-    require __DIR__ . '/PHPMailer/src/SMTP.php';
+    // require __DIR__ . '/PHPMailer/src/Exception.php';
+    // require __DIR__ . '/PHPMailer/src/PHPMailer.php';
+    // require __DIR__ . '/PHPMailer/src/SMTP.php';
+    require __DIR__ . '/vendor/autoload.php';
 
     // 1) ADMIN EMAIL — goes to BOTH info@olamibranding.us AND olamibranding@gmail.com
     $mail = new PHPMailer(true);
